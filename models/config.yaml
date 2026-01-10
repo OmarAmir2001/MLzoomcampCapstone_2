@@ -1,0 +1,37 @@
+data:
+  random_state: 42
+  test_size: 0.15
+  train_size: 0.7
+  val_size: 0.15
+stage1:
+  model_type: logistic
+  params:
+    C: 1.0
+    class_weight: balanced
+    max_iter: 1000
+    random_state: 42
+stage2:
+  model_type: logistic
+  params:
+    C: 1.0
+    class_weight: balanced
+    max_iter: 1000
+    random_state: 42
+structured_features:
+  categorical:
+  - product_purchased
+  - ticket_channel
+  - customer_gender
+  excluded:
+  - ticket_priority
+  - ticket_status
+  - date_of_purchase
+  numeric:
+  - customer_age
+text_preprocessing:
+  max_df: 0.95
+  max_features: 5000
+  min_df: 2
+  ngram_range: !!python/tuple
+  - 1
+  - 2
